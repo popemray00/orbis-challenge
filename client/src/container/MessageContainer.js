@@ -20,12 +20,12 @@ class MessagesContainer extends Component {
         )
     }
 
-    fetchMessages = (messages = "") => {
-        fetch(`https://api.stocktwits.com/api/2/streams/symbol/:id.json`)
+    fetchMessages = (symbol = " ") => {
+        fetch(`https://api.stocktwits.com/api/2/streams/symbol/AAPL.json`)
         .then(res => res.json())
         .then(({data}) => {
             console.log(data);
-            //this.setState({ messages: data.map( message => ({ message: body }) ) });
+            //this.setState({ messages: data.map( messages = messages.body ) });
             //console.log(messages);
           
     })

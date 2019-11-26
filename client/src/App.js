@@ -8,8 +8,6 @@ class App extends Component {
   render() {
     return (
       <div>
-
-        <StockForm />
         <MessagesContainer />
       </div>
     )
