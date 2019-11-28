@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import StockForm from "./components/StockForm";
 import MessagesContainer from "./container/MessageContainer";
 
 

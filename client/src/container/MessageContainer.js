@@ -1,39 +1,61 @@
 import React, { Component } from 'react';
-import StockForm from "../components/StockForm";
-import FetchStocks from "../components/FetchStocks"
-
-
 
 class MessagesContainer extends Component {
-
     state = {
+        symbol: "",
         messages: []
+    }
+    
+    
+    handleSubmit = event => {
+        event.preventDefault()
+        this.setState({
+            symbol: event.target.value
+        })
+      }
+
+    componentDidMount() {
+       console.log(this.state);
+       
+        fetch(`https://api.stocktwits.com/api/2/streams/symbol/aapl.json`)
+        .then(res => res.json())
+        .then((data => {
+            console.log(data);
+            let symbol = data.symbol.symbol;
+    
+            this.setState({symbol: symbol});
+            console.log("state", this.state.symbol);
+
+              
+            this.setState({messages: data.messages});
+            
+            
+            })
+        )
     }
     
 
     render() {
+        
         return (
             <div>
-                <StockForm fetchMessages={this.fetchMessages} />
-                <FetchStocks messages={this.state.messages} />
+                <div>
+                    <form>
+                        <input type="text" value={this.state.symbol} onChange={event => this.setState({symbol: event.target.value})} />
+                        <button onSubmit={this.handleSubmit}>Submit</button>
+                    </form>
+                </div>
+                <div>
+                    {this.state.symbol}
+                        <ul>
+                            {this.state.messages.map(messages =>
+                                <li key={messages.id}>{messages.body}</li>
+                            )}
+                        </ul>
+                </div> 
             </div>
+           
         )
     }
-
-    fetchMessages = (symbol = " ") => {
-        fetch(`https://api.stocktwits.com/api/2/streams/symbol/AAPL.json`)
-        .then(res => res.json())
-        .then(({data}) => {
-            console.log(data);
-            //this.setState({ messages: data.map( messages = messages.body ) });
-            //console.log(messages);
-          
-    })
 }
-
-componentDidMount() {
-    this.fetchMessages()
-  }
-}
-
 export default MessagesContainer;
