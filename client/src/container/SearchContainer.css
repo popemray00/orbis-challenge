@@ -6,3 +6,18 @@
     font-style: italic;
     font-size: 200%;
 }
+
+.Symbol {
+    margin-top: 3%;
+}
+
+.Messages {
+    text-align: center;
+    align-items: flex-start;
+
+}
+
+.Ul {
+    list-style: initial;
+    display: inline;
+}
