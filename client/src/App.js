@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MessagesContainer from "./container/MessageContainer";
+import SearchContainer from "./container/SearchContainer";
 
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MessagesContainer />
+        <SearchContainer />
       </div>
     )
   }
