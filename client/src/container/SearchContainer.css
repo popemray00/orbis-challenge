@@ -1,10 +1,21 @@
+
+
+@media (min-width: 576px) {
+
 .Main {
     text-align: center;
 }
 
-.Header {
+.Jumbo {
     font-style: italic;
-    font-size: 200%;
+    font-size: 100%;
+    background-image: url("/money.jpg");
+    background-size: 25%;
+    background-position: center;
+    background-repeat: repeat;
+    width: 100%;
+    margin-bottom: 2%;
+    height: 225px;
 }
 
 .Symbol {
@@ -13,11 +24,42 @@
 
 .Messages {
     text-align: center;
-    align-items: flex-start;
-
+    display: inline-flex;
+    flex-flow: wrap;
+    margin-left: 3%;
+    align-items: stretch;
+    width: 100%;
+}
 }
 
-.Ul {
-    list-style: initial;
-    display: inline;
-}
+
+@media (max-width: 575px) {
+
+    .Main {
+        text-align: center;
+    }
+    
+    .Jumbo {
+        font-style: italic;
+        font-size: 100%;
+        background-image: url("/money.jpg");
+        background-size: 30%;
+        background-position: center;
+        background-repeat: repeat;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    
+    .Symbol {
+        margin-top: 3%;
+    }
+    
+    .Messages {
+        text-align: center;
+        display: inline-flex;
+        flex-flow: wrap;
+        
+        align-items: stretch;
+        width: 100%;
+    }
+    }

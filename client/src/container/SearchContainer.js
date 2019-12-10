@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './SearchContainer.css';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck'
+import CardDeck from 'react-bootstrap/CardDeck';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 
 class SearchConatainer extends Component {
@@ -41,13 +42,20 @@ class SearchConatainer extends Component {
     render() {
         return (
             <div className="Main">
-                <div className="Header">
-                    <h1>Greetings Fellow Investers</h1>
-                    <p>Please start out by searching a stock symbol</p>
+                
+                <div>
+                    <Jumbotron className="Jumbo" fluid>
+                    </Jumbotron>
                 </div>
+
+                <div>
+                    <h1>Greetings Fellow Investers!</h1>
+                    <h3>Please start out by searching a stock symbol!</h3>
+                </div>
+
                 <div className="Form">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={this.state.symbol} placeHolder={"AAPL, BABA, JOY"} onChange={this.onChange} /> 
+                        <input type="text" value={this.state.symbol} placeHolder={"AAPL, BABA, JOY, ETC.."} onChange={this.onChange} /> 
                         <button>Submit</button>       
                     </form>
                 </div>
@@ -58,20 +66,23 @@ class SearchConatainer extends Component {
                 </div>
 
                 <div className="Messages">
-                    <ul className="Ul"> 
                         {this.state.messages.map(messages =>
                             <CardDeck>
                                 <Card key={messages.id} style={{ width: '18rem' }}>
                                     <Card.Body>
                                         <Card.Text>
-                                        {messages.body}
+                                            {messages.body}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
-                                </CardDeck>)}
-                    </ul>     
+                            </CardDeck>)}
+            
                 </div>
-                        <div>There are {this.messCount()} Messages!</div>
+
+                        <div>
+                            There are {this.messCount()} Messages!
+                        </div>
+
             </div>
         )
     }
